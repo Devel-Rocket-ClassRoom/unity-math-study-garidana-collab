@@ -7,6 +7,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using NUnit.Framework.Constraints;
+
 
 public class Assignment_DirectionAlert : MonoBehaviour
 {
@@ -20,8 +22,8 @@ public class Assignment_DirectionAlert : MonoBehaviour
         Right
     }
 
-    [System.Serializable]
-    public struct EnemyInfo
+    [System.Serializable] // 
+    public struct EnemyInfo 
     {
         public Transform transform;
         public Direction direction;
@@ -32,6 +34,11 @@ public class Assignment_DirectionAlert : MonoBehaviour
     [Tooltip("적 감지 반경")]
     [Range(1f, 30f)]
     [SerializeField] private float alertRange = 15f;
+
+    [Header("=== 전후방 판별 임계값 ===")]
+    [Tooltip("전후방 판별 임계값")]
+    [Range(0.05f, 0.5f)]
+     [SerializeField] private float sideThreshold = 0.3f;
 
     [Header("=== UI 연결 ===")]
     [Tooltip("정보 표시용 TMP_Text (Canvas 하위에 배치)")]
@@ -75,8 +82,26 @@ public class Assignment_DirectionAlert : MonoBehaviour
 
     private Direction GetDirection(Transform enemy)
     {
+        // 일단 시야각 기준 Enemy의 방향 구하기
+        // 거리와 방향이 AlertRange내부에 들어있는지 검사 후 방향 반환
         // TODO
-        return Direction.None;
+        Vector3 toEnemy = enemy.position - transform.position;
+        toEnemy.y = 0f;
+
+        if (toEnemy == Vector3.zero)
+        {
+            return Direction.None;
+        }
+
+        Vector3 cross = Vector3.Cross(transform.forward, toEnemy.normalized);
+        float dot = Vector3.Dot(transform.forward, toEnemy.normalized);
+
+        if (Mathf.Abs(cross.y) > sideThreshold)
+        {
+            return cross.y > 0 ? Direction.Right : Direction.Left;
+        }
+        return dot > 0 ? Direction.Front : Direction.Back;
+
     }
 
     private void OnDrawGizmos()

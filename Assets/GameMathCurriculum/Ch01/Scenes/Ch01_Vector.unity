@@ -176,6 +176,45 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a2fe5a00011e8b4aa515f13df42cd95, type: 3}
+--- !u!1 &501470818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 811613968478221448, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
+  m_PrefabInstance: {fileID: 1613074471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &501470827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501470818}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2172da1632a4f499f18b79f2070338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assignment_EnemyDetector
+  detectionFOV: 103
+  detectionRange: 12
+  uiInfoText: {fileID: 1738976620}
+  dotProductValue: 0
+  angleBetween: 0
+  detectedCount: 0
+--- !u!114 &501470828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501470818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ab1b04a9e56bb4298949a315a120d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assignment_DirectionAlert
+  alertRange: 6.4
+  sideThreshold: 0.301
+  uiInfoText: {fileID: 0}
+  nearbyEnemies: []
 --- !u!1 &794700020
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +838,7 @@ PrefabInstance:
       objectReference: {fileID: 1436931447}
     - target: {fileID: 4389359893531360214, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4389359893531360214, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
       propertyPath: uiInfoText
@@ -900,7 +939,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 811613968478221448, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 501470828}
+    - targetCorrespondingSourceObject: {fileID: 811613968478221448, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 501470827}
   m_SourcePrefab: {fileID: 100100000, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
 --- !u!1 &1695588461
 GameObject:

@@ -26,6 +26,9 @@ public class Assignment_EnemyDetector : MonoBehaviour
 
     [Header("=== 디버그 정보 (읽기 전용) ===")]
     [Tooltip("현재 탐지된 적의 수")]
+
+    [SerializeField] private float dotProductValue;
+    [SerializeField] private float angleBetween;
     [SerializeField] private int detectedCount = 0;
 
     private List<Transform> detectedEnemies = new List<Transform>();
@@ -67,7 +70,24 @@ public class Assignment_EnemyDetector : MonoBehaviour
     private bool IsDetected(Transform enemy)
     {
         // TODO
-        return false;
+        //
+        Vector3 toEnemy = enemy.position - transform.position;
+        if (toEnemy.magnitude > detectionRange)
+        {
+            return false;
+        }
+        Vector3 toEnemyNorm = toEnemy.normalized;
+        dotProductValue = Vector3.Dot(transform.forward, toEnemyNorm);
+        angleBetween = Mathf.Acos(dotProductValue) * Mathf.Rad2Deg;
+
+        float halfFovCos = Mathf.Cos(detectionFOV * 0.5f * Mathf.Deg2Rad);
+
+        return dotProductValue > halfFovCos;
+
+        
+
+
+  
     }
 
     private void OnDrawGizmos()

@@ -56,17 +56,28 @@ public class CrossProductDemo : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 외적(Vector3.Cross) 연산을 이용해 대상이 플레이어 기준 "왼쪽/오른쪽/정면(혹은 후방)"에 있는지 판별하는 메서드.
+    /// 
+    /// 1. 대상까지의 평면 방향(toTarget)을 계산한다. (y=0로 하여 수평면에서만 판별)
+    /// 2. transform.forward(정면)과 대상까지의 방향 벡터의 외적을 구한다.
+    ///    - 외적의 y값(crossY)이 양수면 대상이 오른쪽, 음수면 왼쪽, 0에 가까우면 정면 또는 후방에 있다.
+    ///    - 외적의 결과를 이용하면 방향 구분을 간단하게 할 수 있다.
+    /// 3. 미리 정해둔 임계값(threshold)보다 크거나/작은지 비교하여 "Right", "Left", "Front/Back" 문자열을 반환한다.
+    /// </summary>
     private string CheckLeftOrRight(Transform targetTransform)
     {
-
-        Vector3 toTarget = targetTransform.position - transform.position; // 플레이어에서 대상까지의 방향 벡터
+        // 플레이어에서 대상까지의 방향 벡터(수평면 투영)
+        Vector3 toTarget = targetTransform.position - transform.position;
         toTarget.y = 0f;
 
+        // 정면 벡터와 대상 방향 벡터의 외적 결과 (수직축 기준 방향 판별)
         crossProduct = Vector3.Cross(transform.forward, toTarget.normalized);
         crossY = crossProduct.y; // 외적 결과의 y 값을 저장
 
-        float threshold = 0.1f;
+        float threshold = 0.1f; // 방향 판별 민감도
 
+        // crossY가 +면 오른쪽, -면 왼쪽, 임계값 이내면 (정면/후방)
         if (crossY > threshold)
         {
             return "Right";

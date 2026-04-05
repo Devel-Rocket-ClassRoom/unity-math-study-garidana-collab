@@ -188,7 +188,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501470818}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff2172da1632a4f499f18b79f2070338, type: 3}
   m_Name: 
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501470818}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84ab1b04a9e56bb4298949a315a120d2, type: 3}
   m_Name: 
@@ -835,7 +835,7 @@ PrefabInstance:
     - target: {fileID: 4389359893531360214, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1436931447}
+      objectReference: {fileID: 0}
     - target: {fileID: 4389359893531360214, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -891,6 +891,10 @@ PrefabInstance:
     - target: {fileID: 7500375179435098682, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7500375179435098682, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
+      propertyPath: moveSpeed
+      value: 9.62
       objectReference: {fileID: 0}
     - target: {fileID: 7500375179435098682, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
       propertyPath: uiInfoText

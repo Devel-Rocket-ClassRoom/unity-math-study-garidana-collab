@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Assignment_BulletHell : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Assignment_BulletHell : MonoBehaviour
         Spiral,
         Fan
     }
+
     [Header("=== 탄막 설정 ===")]
     [SerializeField] private GameObject bulletPrefab;
     [Tooltip("발사 탄막 개수 (8~36권장)")] [Range(8, 36)]
@@ -87,21 +89,44 @@ public class Assignment_BulletHell : MonoBehaviour
     private Vector3 CalculateCircleDirection(int index, int total)
     {
         // TODO
-        
+        // 360도를 탄환 수로 균등 분할하여 각 탄환의 각도(도)를 구한다
+        float angleDegree = index * (360f / total);
+        // 삼각함수(Cos, Sin)는 라디안을 인자로 받으므로 변환
+        float angleRadian = angleDegree * Mathf.Deg2Rad;
 
-        return Vector3.forward;
+        // XZ 평면 기준으로 원형 방향 벡터 생성 (Y=0이므로 수평 발사)
+        Vector3 direction = new Vector3 (Mathf.Cos(angleRadian), 0f, Mathf.Sin(angleRadian)).normalized;
+
+        return direction;
     }
 
     private Vector3 CalculateSpiralDirection(int index, int total)
     {
         // TODO
-        return Vector3.forward;
+        // 360도를 탄환 수로 균등 분할
+        float angleStep = 360f / total;
+        // Time.time(경과 시간) * spiralTurnSpeed로 발사마다 기준 각도가 회전하여 나선형을 만든다
+        // spiralTurnSpeed는 라디안/초 단위이므로 도(degree)로 변환 후 더한다
+        float angleDegree = index * angleStep + Time.time * spiralTurnSpeed * Mathf.Rad2Deg;
+
+        // Quaternion.Euler로 Y축 회전을 적용하여 방향 벡터를 구한다
+        Vector3 direction = Quaternion.Euler(0f, angleDegree, 0f) * transform.forward;
+
+        return direction;
     }
 
     private Vector3 CalculateFanDirection(int index, int total)
     {
         // TODO
-        return Vector3.forward;
+        // fanAngle 범위 안에서 탄환을 균등 분배
+        float angleDegree = index * (fanAngle / total);
+        // 삼각함수 계산을 위해 라디안으로 변환
+        float angleRadian = angleDegree * Mathf.Deg2Rad;
+
+        // XZ 평면 기준으로 부채꼴 방향 벡터 생성
+        Vector3 direction = new Vector3(Mathf.Cos(angleRadian), 0f, Mathf.Sin(angleRadian)).normalized;
+
+        return direction;
     }
     
     private void UpdateDebugUI()

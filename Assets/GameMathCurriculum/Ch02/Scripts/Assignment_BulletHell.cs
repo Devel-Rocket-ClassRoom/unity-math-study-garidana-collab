@@ -99,7 +99,7 @@ public class Assignment_BulletHell : MonoBehaviour
 
         return direction;
     }
-
+    
     private Vector3 CalculateSpiralDirection(int index, int total)
     {
         // TODO

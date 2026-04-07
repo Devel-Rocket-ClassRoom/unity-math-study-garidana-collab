@@ -663,13 +663,21 @@ PrefabInstance:
       propertyPath: uiText
       value: 
       objectReference: {fileID: 697674738}
+    - target: {fileID: 6970000621733122294, guid: c03da01c00aaf2645b81c5ed62942e04, type: 3}
+      propertyPath: armLength
+      value: 2.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970000621733122294, guid: c03da01c00aaf2645b81c5ed62942e04, type: 3}
+      propertyPath: rotationAngle
+      value: 176
+      objectReference: {fileID: 0}
     - target: {fileID: 8965710035645752671, guid: c03da01c00aaf2645b81c5ed62942e04, type: 3}
       propertyPath: m_Name
       value: TrailDemo
       objectReference: {fileID: 0}
     - target: {fileID: 8965710035645752671, guid: c03da01c00aaf2645b81c5ed62942e04, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

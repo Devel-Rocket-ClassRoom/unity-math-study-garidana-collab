@@ -11,11 +11,7 @@ public class OffScreenIndicator : MonoBehaviour
 
     private float margin = 10f;
 
-    
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -34,8 +30,8 @@ public class OffScreenIndicator : MonoBehaviour
             }
 
             image.transform.position = new Vector3 (
-                Mathf.Clamp(targetPosition.x, margin, Screen.width - margin),
-                Mathf.Clamp(targetPosition.y, margin, Screen.height - margin),
+                Mathf.Clamp(targetPosition.x, margin, Screen.width - margin - 50),
+                Mathf.Clamp(targetPosition.y, margin, Screen.height - margin - 50),
                 0f
             );
         }

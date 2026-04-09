@@ -31,7 +31,7 @@ public class Assignment_SplineConveyor : MonoBehaviour
     [Header("=== 디버그 정보 (읽기 전용) ===")]
     [SerializeField] private float globalT;
     [SerializeField] private float currentSpeedMultiplier;
-
+    
     private void Update()
     {
         // TODO

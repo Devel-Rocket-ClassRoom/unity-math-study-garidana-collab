@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 305980205}
   - component: {fileID: 305980210}
   - component: {fileID: 305980209}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform 3
   m_TagString: DropZone
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 305980204}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 322.5, y: 9.7, z: 438.2}
+  m_LocalPosition: {x: 157.6, y: 34.6, z: 384.3}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305980204}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73717ee3fe054544d816df18426c9f83, type: 3}
   m_Name: 
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509332446}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35b9a960f32117d44a01e448c003119b, type: 3}
   m_Name: 
@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 670265470}
   - component: {fileID: 670265469}
   - component: {fileID: 670265472}
+  - component: {fileID: 670265473}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -408,13 +409,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670265468}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.002627084, y: -0.9296414, z: 0.36839652, w: 0.0066293958}
-  m_LocalPosition: {x: 354.7, y: 81.3, z: 498.8}
+  m_LocalRotation: {x: -0.0048316703, y: -0.92875534, z: 0.36597335, w: -0.058768492}
+  m_LocalPosition: {x: 356.3, y: 187, z: 611.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 43.235, y: -179.183, z: 0}
+  m_LocalEulerAnglesHint: {x: 42.872, y: -188.287, z: -2.662}
 --- !u!114 &670265472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +460,28 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &670265473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670265468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3b4a8646e227c4385e647913c77c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragDropManager
+  camera: {fileID: 670265470}
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
+  dragObject:
+    serializedVersion: 2
+    m_Bits: 128
+  dropZone:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &991498744
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,9 +494,10 @@ GameObject:
   - component: {fileID: 991498747}
   - component: {fileID: 991498746}
   - component: {fileID: 991498745}
-  m_Layer: 3
+  - component: {fileID: 991498749}
+  m_Layer: 7
   m_Name: Cube 3
-  m_TagString: Draggable
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -565,12 +589,27 @@ Transform:
   m_GameObject: {fileID: 991498744}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 368.3, y: 28, z: 387.4}
+  m_LocalPosition: {x: 414, y: 18.6, z: 124}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &991498749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991498744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f9f4f3021bd9949bd5d186558f3a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragObject
+  timeReturn: 2
+  isReturning: 0
+  originalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1089651159
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +624,7 @@ GameObject:
   - component: {fileID: 1089651160}
   - component: {fileID: 1089651165}
   - component: {fileID: 1089651164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform 1
   m_TagString: DropZone
   m_Icon: {fileID: 0}
@@ -681,7 +720,7 @@ Transform:
   m_GameObject: {fileID: 1089651159}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 313.5, y: 11.34, z: 461.1}
+  m_LocalPosition: {x: 252.9, y: 8.5, z: 520.3}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -694,7 +733,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089651159}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73717ee3fe054544d816df18426c9f83, type: 3}
   m_Name: 
@@ -735,7 +774,7 @@ GameObject:
   - component: {fileID: 1138426263}
   - component: {fileID: 1138426268}
   - component: {fileID: 1138426267}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform 2
   m_TagString: DropZone
   m_Icon: {fileID: 0}
@@ -831,7 +870,7 @@ Transform:
   m_GameObject: {fileID: 1138426262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 311.4, y: 13.7, z: 415.4}
+  m_LocalPosition: {x: 169, y: 1, z: 318}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -844,7 +883,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138426262}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73717ee3fe054544d816df18426c9f83, type: 3}
   m_Name: 
@@ -883,9 +922,10 @@ GameObject:
   - component: {fileID: 1313452087}
   - component: {fileID: 1313452086}
   - component: {fileID: 1313452085}
-  m_Layer: 3
+  - component: {fileID: 1313452089}
+  m_Layer: 7
   m_Name: Cube 2
-  m_TagString: Draggable
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -977,12 +1017,27 @@ Transform:
   m_GameObject: {fileID: 1313452084}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 387.7, y: 28, z: 459.8}
+  m_LocalPosition: {x: 522.1, y: 28, z: 566.7}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1313452089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313452084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f9f4f3021bd9949bd5d186558f3a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragObject
+  timeReturn: 2
+  isReturning: 0
+  originalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1417339402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,9 +1143,10 @@ GameObject:
   - component: {fileID: 1434836957}
   - component: {fileID: 1434836956}
   - component: {fileID: 1434836955}
-  m_Layer: 3
+  - component: {fileID: 1434836959}
+  m_Layer: 7
   m_Name: Cube 1
-  m_TagString: Draggable
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1182,12 +1238,27 @@ Transform:
   m_GameObject: {fileID: 1434836954}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 373.1, y: 28, z: 427.1}
+  m_LocalPosition: {x: 461, y: 20.7, z: 383}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1434836959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434836954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f9f4f3021bd9949bd5d186558f3a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragObject
+  timeReturn: 2
+  isReturning: 0
+  originalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1842665879
 GameObject:
   m_ObjectHideFlags: 0

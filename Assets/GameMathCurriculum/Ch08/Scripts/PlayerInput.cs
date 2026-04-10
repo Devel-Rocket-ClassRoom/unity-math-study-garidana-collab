@@ -9,11 +9,6 @@ public class PlayerInput : MonoBehaviour
     public float Move {get; private set;}
     public float Rotate {get; private set;}
 
-    public void Awake()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

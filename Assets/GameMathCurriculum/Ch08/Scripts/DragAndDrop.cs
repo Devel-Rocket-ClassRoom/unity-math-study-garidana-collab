@@ -43,10 +43,11 @@ public class DragAndDrop : MonoBehaviour
 
     private void Drag()
     {
+        
         if (selectedObject == null) return;
-
+        // 마우스 위치에서 레이 발사
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+        // 레이가 Terrain 레이어에 닿았는지 확인
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundLayer))
         {
             Vector3 targetPos = hit.point + Vector3.up * heightOffset;
@@ -57,13 +58,15 @@ public class DragAndDrop : MonoBehaviour
     private void Drop()
     {
         if (selectedObject == null) return;
-
+        // 드롭할 때 오브젝트 주변에 DropZone이 있는지 확인
         Collider[] overlaps = Physics.OverlapBox(
             selectedObject.transform.position,
             selectedObject.transform.localScale * 0.5f
         );
 
         DropZone dropZone = null;
+
+        
         foreach(Collider col in overlaps)
         {
             dropZone = col.GetComponent<DropZone>();
